@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <title>AcDec Music 26–27 Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Listening practice</p>
+        <h1>AcDec Music 26–27</h1>
+      </div>
+      <button id="restartTop" class="icon-button" type="button" title="Restart game" aria-label="Restart game">↻</button>
+    </header>
+
+    <section class="game-card" aria-live="polite">
+      <div class="progress-row">
+        <span id="progressText">Round 1 of 14</span>
+        <span id="scoreText">0 correct · 0 incorrect</span>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+
+      <div id="loading" class="loading" hidden>
+        <div class="spinner"></div>
+        <p>Preparing a listening clip…</p>
+      </div>
+
+      <div id="game" hidden>
+        <div class="listen-panel">
+          <button id="replaySnippet" class="play-button" type="button" aria-label="Replay the short snippet">
+            <span class="play-icon">▶</span>
+          </button>
+          <div>
+            <p class="panel-label">Listen closely</p>
+            <p id="snippetStatus" class="snippet-status">Short clip · 5–7 seconds</p>
+          </div>
+        </div>
+
+        <h2 class="question-title">Which piece is playing?</h2>
+        <div id="answers" class="answers"></div>
+
+        <div id="feedback" class="feedback" hidden>
+          <div id="feedbackBadge" class="feedback-badge"></div>
+          <div class="feedback-copy">
+            <p id="feedbackKicker" class="panel-label"></p>
+            <h3 id="correctTitle"></h3>
+          </div>
+          <div id="fullPieceControls" class="full-piece" hidden>
+            <p class="panel-label">Listen to the full piece</p>
+            <audio id="fullAudio" controls preload="metadata"></audio>
+          </div>
+          <button id="nextRound" class="next-button" type="button">Next piece <span>→</span></button>
+        </div>
+      </div>
+
+      <div id="errorState" class="error-state" hidden>
+        <h2>Unable to load the music</h2>
+        <p>Run this page with a local web server, then refresh.</p>
+      </div>
+
+      <div id="finished" class="finished" hidden>
+        <div class="finish-mark">✓</div>
+        <p class="panel-label">Practice complete</p>
+        <h2 id="finalScore"></h2>
+        <p id="finalMessage"></p>
+        <button id="restartBottom" class="next-button" type="button">Practice again <span>↻</span></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
